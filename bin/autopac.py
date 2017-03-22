@@ -7,11 +7,12 @@ import subprocess
 import sys
 
 CONF_PATH_LIST = [
-    '~/.autopac.ini',
-    '~/.autopac/autopac.ini',
     '/etc/autopac.ini',
     '/etc/autopac/autopac.ini',
-    '/autopac.ini',
+    '/usr/etc/autopac.ini',
+    '/usr/etc/autopac/autopac.ini',
+    '/usr/local/etc/autopac.ini',
+    '/usr/local/etc/autopac/autopac.ini',
 ]
 
 
@@ -60,7 +61,7 @@ class NetworkSetup(object):
         self.default_static_addr = None
 
         if self.cp.has_section(self.DEFAULT_SECTION):
-            for k, v in self.cp.items('self.DEFAULT_SECTION'):
+            for k, v in self.cp.items(self.DEFAULT_SECTION):
                 if k == self.PAC_URL_COLUMN:
                     self.default_pac_url = v
                 if k == self.STATIC_ADDR_COLUMN:
