@@ -60,12 +60,11 @@ class NetworkSetup(object):
         self.default_static_addr = None
 
         if self.cp.has_section(self.DEFAULT_SECTION):
-            self.default_pac_url = self.cp.get(self.DEFAULT_SECTION,
-                                               self.PAC_URL_COLUMN,
-                                               None)
-            self.default_static_addr = self.cp.get(self.DEFAULT_SECTION,
-                                                   self.STATIC_ADDR_COLUMN,
-                                                   None)
+            for k, v in self.cp.items('self.DEFAULT_SECTION'):
+                if k == self.PAC_URL_COLUMN:
+                    self.default_pac_url = v
+                if k == self.STATIC_ADDR_COLUMN:
+                    self.default_static_addr = v
 
     def _execute(self, command, *args):
         cmd = [
@@ -107,9 +106,11 @@ class NetworkSetup(object):
         pac_url = self.default_pac_url
         static_addr = self.default_static_addr
         if self.cp.has_section(airport_network):
-            pac_url = self.cp.get(airport_network, self.PAC_URL_COLUMN, None)
-            static_addr = self.cp.get(airport_network, self.STATIC_ADDR_COLUMN,
-                                      None)
+            for k, v in self.cp.items(airport_network):
+                if k == self.PAC_URL_COLUMN:
+                    pac_url = v
+                if k == self.STATIC_ADDR_COLUMN:
+                    static_addr = v
         return pac_url, static_addr
 
     def set_autoproxy_state(self, network_service, state):
