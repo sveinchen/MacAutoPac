@@ -8,11 +8,9 @@ import sys
 
 CONF_PATH_LIST = [
     '/etc/autopac.ini',
-    '/etc/autopac/autopac.ini',
-    '/usr/etc/autopac.ini',
-    '/usr/etc/autopac/autopac.ini',
+    '/etc/MacAutoPac/autopac.ini',
     '/usr/local/etc/autopac.ini',
-    '/usr/local/etc/autopac/autopac.ini',
+    '/usr/local/etc/MacAutoPac/autopac.ini',
 ]
 
 
