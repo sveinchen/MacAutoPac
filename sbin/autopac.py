@@ -8,9 +8,7 @@ import sys
 
 CONF_PATH_LIST = [
     '/etc/autopac.ini',
-    '/etc/MacAutoPac/autopac.ini',
     '/usr/local/etc/autopac.ini',
-    '/usr/local/etc/MacAutoPac/autopac.ini',
 ]
 
 
@@ -40,7 +38,7 @@ class NetworkSetup(object):
 
     BASE_COMMAND = 'networksetup'
 
-    DEFAULT_SECTION = 'AutopacDefaults'
+    DEFAULT_SECTION = 'autopac'
     PAC_URL_COLUMN = 'pac_url'
     STATIC_ADDR_COLUMN = 'static_addr'
 
