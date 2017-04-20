@@ -6,7 +6,7 @@ Update Automatic Proxy Configuration automatically according to Wi-Fi name for m
 #### Homebrew
 
 ```bash
-$ brew tap sveinchen/macautopac && brew install macautopac
+$ brew tap sveinchen/taps && brew install macautopac
 $ sudo brew services start macautopac
 ```
 
